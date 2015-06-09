@@ -4,23 +4,6 @@ var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
 
-/* //Rechteck zeichnen
-ctx.fillStyle = 'yellow';
-ctx.fillRect(50, 100, 40, 80); */
-
-
-/*
-//Kreis zeichnen
-ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(200, 200, 50, 0, 1.5 * Math.PI);
-        ctx.fillStyle = 'green';
-        ctx.fill();
-		ctx.strokeStyle = 'red';
-		ctx.stroke();
-*/
-
-
 var width = document.getElementById("canvas").width; //750
 var height = document.getElementById("canvas").height; //450
 var cellWidth = 15;
@@ -34,7 +17,7 @@ var headPointer;
 
 //Spiel starten
 
-//init();
+init();
 
 function init(){
 	score = 0;
@@ -44,7 +27,7 @@ function init(){
 	create_snake();	
 	
 	if(typeof game_loop != "undefined") clearInterval(game_loop);
-		game_loop = setInterval(paint, 50);
+		game_loop = setInterval(paint, 100);
 	
 }
 
@@ -60,7 +43,7 @@ function create_snake(){
 	snake = [];
 	for(var i = 0; i < length;i++)
 	{
-		snake[i]=new cell(i,0);		
+		snake[i]= new cell(i,0);		
 	}
 	
 }
@@ -70,7 +53,7 @@ function paint(){
 	ctx.fillStyle = "black";
 	ctx.fillRect(0, 0, width, height);
 	
-	/*
+	
 	//Bewegung der Schlange
 	
 	//Zwischenspeichern der Koordinaten des Kopfes
@@ -115,7 +98,7 @@ function paint(){
 	snake[headPointer].x = headX;
 	snake[headPointer].y = headY;
 	
-	*/
+	
 	
 	//Schlange zeichnen
 	for(var i=0; i < snake.length; i++){
@@ -133,7 +116,7 @@ function paint(){
 }
 
 //Benutzereingaben abfangen
-/*
+
 	addEventListener("keydown", function (event) {
     var key = event.which;
 		
@@ -143,10 +126,10 @@ function paint(){
 		else if(key == "40" && direction != "hoch") direction = "runter";
 		
 }, false)
-*/
+
 
 //Kollision der Schlange mit sich selbst prüfen
-/*
+
 	function collision(x,y)
 	{
 		for(var i=0; i < snake.length; i++)
@@ -155,7 +138,7 @@ function paint(){
 		}
 		return false;
 	}
-*/
+
 
 
 
